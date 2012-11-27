@@ -18,6 +18,9 @@
 #define VALUE_BOOLEAN 3
 
 using namespace std;
+namespace JSON 
+
+{
 class Json:
 	public map<string,string>,
 	public vector<string>
@@ -50,5 +53,6 @@ class Json:
 		void format_to_array(string &m);
 		void format_to_object(string &a);
 		
+};
 };
 #endif

@@ -1,14 +1,14 @@
 #include "Json.h"
 
-Json::Json(int t){
+JSON::Json::Json(int t){
 	type = t;
 }
 
 
-Json::~Json(){
+JSON::Json::~Json(){
 }
 
-void Json::toString(string &json_message)
+void JSON::Json::toString(string &json_message)
 {
 	if (TYPE_JSON_OBJ == type)
 	{
@@ -19,7 +19,7 @@ void Json::toString(string &json_message)
 		format_to_array(json_message);
 	}
 }
-void Json::format_to_object(string &msg){
+void JSON::Json::format_to_object(string &msg){
 	msg.clear();
 	msg.append("{");
 	stringstream s;	
@@ -38,7 +38,7 @@ void Json::format_to_object(string &msg){
 	msg.append("}");
 }
 
-void Json::addValue(string value, int type){
+void JSON::Json::addValue(string value, int type){
 
 	string v;
 	switch( type ){
@@ -60,21 +60,21 @@ void Json::addValue(string value, int type){
 }
 
 
-void Json::addValue(Json a){
+void JSON::Json::addValue(Json a){
 	string b;
 	a.toString(b);
 	addValue(b, VALUE_JSON);
 }
 
-void Json::addNameValue(string key, Json a ){
+void JSON::Json::addNameValue(string key, Json a ){
 	string b;
 	a.toString(b);
 	addNameValue(key,b, VALUE_JSON);
 }
-void Json::addNameValue(string key, string value){
+void JSON::Json::addNameValue(string key, string value){
 	addNameValue(key, value, VALUE_STRING);
 }
-void Json::addNameValue(string key, string value , int type){
+void JSON::Json::addNameValue(string key, string value , int type){
 	string v;
 	string k;
 	k.append("\"");
@@ -101,7 +101,7 @@ void Json::addNameValue(string key, string value , int type){
 
 }
 
-void Json::format_to_array(string &msg){
+void JSON::Json::format_to_array(string &msg){
 	msg.append("[");
 	vector<string>::iterator iter_v = ((vector<string>*)this)->begin();
 	bool begin = true;

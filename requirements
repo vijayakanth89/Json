@@ -1,0 +1,17 @@
+conditions.
+
+1. will start with '{' or '[' else incorrect json
+2. if an array it should end with ']'
+3. if a hash end with '}'
+4. if an array should be delimited by  ','
+5. if an array elements can be any of the other json types or abstract data.
+6. Should not check for delimiters if the string specializers are detected.
+
+
+
+ideas;
+-----
+
+for each delimiter can keep a set of permissible preceeding delimiters.
+for each encounter with delimiter should validate this metric also.
+
